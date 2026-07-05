@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+/* ============================================
+   CUSTOM DESIGN TOKENS — Yoga Theme
+   ============================================ */
+@theme inline {
+  /* Color Palette: Earthy, calming tones */
+  --color-terracotta-50: #fdf4f0;
+  --color-terracotta-100: #fae4d8;
+  --color-terracotta-200: #f5c8b1;
+  --color-terracotta-300: #eda47e;
+  --color-terracotta-400: #e37d4a;
+  --color-terracotta-500: #c96a38;
+  --color-terracotta-600: #b05530;
+  --color-terracotta-700: #8f4228;
+  --color-terracotta-800: #723525;
+  --color-terracotta-900: #5d2d22;
+
+  --color-sage-50: #f2f6f2;
+  --color-sage-100: #e1eae1;
+  --color-sage-200: #c3d5c4;
+  --color-sage-300: #9dba9f;
+  --color-sage-400: #75997a;
+  --color-sage-500: #587a5e;
+  --color-sage-600: #44614a;
+  --color-sage-700: #374f3c;
+  --color-sage-800: #2c3f31;
+  --color-sage-900: #253429;
+
+  --color-gold-50: #fdfaef;
+  --color-gold-100: #faf0cc;
+  --color-gold-200: #f5de94;
+  --color-gold-300: #efc556;
+  --color-gold-400: #e8ac2a;
+  --color-gold-500: #d4930f;
+  --color-gold-600: #b87509;
+  --color-gold-700: #90590b;
+  --color-gold-800: #77480f;
+  --color-gold-900: #633c12;
+
+  --color-cream-50: #fdfcf8;
+  --color-cream-100: #faf7ef;
+  --color-cream-200: #f4edda;
+  --color-cream-300: #ebdec0;
+  --color-cream-400: #ddc99a;
+  --color-cream-500: #cfb477;
+  --color-cream-600: #b89455;
+
+  /* Typography */
+  --font-serif: "Fraunces", "Playfair Display", Georgia, serif;
+  --font-sans: "Manrope", "Inter", system-ui, sans-serif;
+
+  /* Background / foreground */
+  --color-background: #fdfcf8;
+  --color-foreground: #2c2116;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+:root {
+  --background: #fdfcf8;
+  --foreground: #2c2116;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #c96a38 #faf7ef;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), "Manrope", system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Subtle grain texture */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+}
+
+/* ============================================
+   TYPOGRAPHY HELPERS
+   ============================================ */
+.font-serif {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+.font-sans {
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif), Georgia, serif;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h4, h5, h6 {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* ============================================
+   ACCORDION ANIMATIONS (Radix)
+   ============================================ */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.25s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.25s ease-out;
+}
+
+/* ============================================
+   SECTION DIVIDERS
+   ============================================ */
+.section-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #c96a3840,
+    transparent
+  );
+}
+
+/* ============================================
+   GRADIENT BACKGROUNDS
+   ============================================ */
+.bg-warm-gradient {
+  background: linear-gradient(135deg, #fdf4f0 0%, #fdfcf8 50%, #f2f6f2 100%);
+}
+
+.bg-earth-gradient {
+  background: linear-gradient(135deg, #c96a38 0%, #8f4228 50%, #374f3c 100%);
+}
+
+/* ============================================
+   HERO VIDEO OVERLAY
+   ============================================ */
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(44, 33, 22, 0.55) 0%,
+    rgba(44, 33, 22, 0.3) 40%,
+    rgba(44, 33, 22, 0.6) 100%
+  );
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #faf7ef;
+}
+::-webkit-scrollbar-thumb {
+  background: #c96a38;
+  border-radius: 3px;
+}
+
+/* ============================================
+   FOCUS STYLES
+   ============================================ */
+:focus-visible {
+  outline: 2px solid #c96a38;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ============================================
+   SELECTION
+   ============================================ */
+::selection {
+  background: #f5c8b1;
+  color: #2c2116;
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+.text-balance {
+  text-wrap: balance;
+}
+
+.container-yoga {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-yoga {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-yoga {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
