@@ -21,7 +21,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  const blogSlugs = ["complete-guide-rishikesh-yoga", "yoga-philosophy-patanjali-sutras", "sun-salutation-guide"];
+  const blogSlugs = [
+    "complete-guide-rishikesh-yoga",
+    "yoga-philosophy-patanjali-sutras",
+    "sun-salutation-guide",
+    "ayurveda-yoga-diet",
+    "yoga-teacher-certification-worth-it",
+    "pranayama-breathing-techniques",
+  ];
+
   const blogRoutes: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
     url: `${BASE}/blog/${slug}`,
     lastModified: new Date(),
